@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vanilla JS: Detect Caps Lock</title>
+  <!-- bootstrap css 4.5.0 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" />
+</head>
+<body>
+  <div class="container">
+    <h2 class="my-5 text-center">Vanilla JS: Detect Caps Lock</h2>
+    <div class="mb-3">
+      <input type="text" class="form-control" />
+    </div>
+    <p class="text-muted">(Nhập text vào ô input để kiểm tra <b>Caps Lock</b> có bật hay không)</p>
+    <div id="capsLockWarning" class="text-danger"></div>
+  </div>
+  <script>
+    // step 1
+    const ipnElement = document.querySelector('input')
+    const messageElement = document.querySelector('#capsLockWarning')
+
+    // step 2
+    ipnElement.addEventListener('keydown', function (e) {
+      // step 3
+      if (e.getModifierState('CapsLock')) {
+        messageElement.textContent = 'Caps lock is on'
+      } else {
+        messageElement.textContent = ''
+      }
+    })
+  </script>
+</body>
+</html>
